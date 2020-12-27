@@ -3,7 +3,7 @@ public class RaceCondition {
 
     public static void simulateRaceCondition(int step) throws InterruptedException {
         createRaceCondition(step);
-        System.out.println("Race condition");
+        System.out.println("== Race condition ==");
         System.out.println("Expected value: " + step * 2);
         System.out.println("Value: " + counter);
         System.out.println();
@@ -21,7 +21,7 @@ public class RaceCondition {
     }
 
     public static void checkLock(FixnumLockable lock, int step) throws InterruptedException {
-        System.out.println("Race condition check");
+        System.out.println("== Race condition check ==");
         if (isRaced(lock, step))
             System.out.println(lock.getClass().getName() + " has race condition");
         else
