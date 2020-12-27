@@ -7,9 +7,9 @@ public class DekkersAlgorithm {
         dekkerLock = new DekkerLock();
 
         dekker(step);
-        System.out.println("Dekker's Algorithm");
+        System.out.println("== Dekker's Algorithm ==");
         System.out.println("Expected value: " + step * 2);
-        System.out.println("Real value: " + counter);
+        System.out.println("Value: " + counter);
         System.out.println();
     }
 
