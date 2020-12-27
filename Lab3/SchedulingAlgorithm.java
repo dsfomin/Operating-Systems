@@ -40,11 +40,16 @@ public class SchedulingAlgorithm {
                         return result;
                     }
                     vector = getVector(processVector);
-                    if (vector.isEmpty())
+                    if (vector.isEmpty()) {
                         break;
+                    }
+
                     currentProcess++;
-                    if (currentProcess >= vector.size())
+
+                    if (currentProcess >= vector.size()) {
                         currentProcess = 0;
+                    }
+
                     process = vector.elementAt(currentProcess);
 
                     if (currentProcess == previousProcess && process.cpudone >= process.cputime) {
@@ -60,12 +65,17 @@ public class SchedulingAlgorithm {
                     previousProcess = currentProcess;
 
                     vector = getVector(processVector);
-                    vector.sort(cmp);
-                    if (vector.isEmpty())
+
+                    if (vector.isEmpty()) {
                         break;
+                    }
+
                     currentProcess++;
-                    if (currentProcess >= vector.size())
+
+                    if (currentProcess >= vector.size()) {
                         currentProcess = 0;
+                    }
+
                     process = vector.elementAt(currentProcess);
 
                     if (currentProcess == previousProcess && process.cpudone >= process.cputime) {
@@ -75,15 +85,20 @@ public class SchedulingAlgorithm {
 
                     out.println("Process: " + process.number + " registered... (" + process.cputime + " " + process.ioblocking + " " + process.cpudone + " " + process.priority + ")");
                 }
+
                 process.cpudone++;
+
                 if (process.ioblocking > 0) {
                     process.ionext++;
                 }
+
                 comptime++;
             }
             out.close();
         } catch (IOException e) { /* Handle exceptions */ }
+
         result.compuTime = comptime;
+
         return result;
     }
 
